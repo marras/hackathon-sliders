@@ -20,8 +20,5 @@ class Sliders.Views.ColoredSlider extends Sliders.Views.BaseView
     @$(".ui-state-default, .ui-widget-content .ui-state-default").css "background-color", myColor
     @$(".friendship-quality").html(value)
 
-  zero: ->
-    @$slider.slider('value', 0)
-
   value: ->
     @$slider.slider('value')
