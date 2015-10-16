@@ -69,4 +69,4 @@ test:
 production:
   sessions:
     default:
-      uri: <%= ENV['MONGOHQ_URL'] %>
+      uri: <%= ENV['PROD_MONGODB'] %>
