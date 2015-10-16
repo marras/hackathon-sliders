@@ -22,4 +22,5 @@ class Sliders.Views.PrioritiesView extends Sliders.Views.BaseView
       obligatory: false
       description: '*'
     @priorities.add priority
+    priority.save()
     $('#new-priority input').val('')
