@@ -2,12 +2,8 @@ class Project
   include Mongoid::Document
   field :title
 
-  has_many :user_projects
+  has_and_belongs_to_many :users
   has_many :priorities
 
-  validates_presence_of :title
-
-  def users
-    user_projects.map &:user
-  end
+  validates :title, uniqueness: true, presence: true
 end

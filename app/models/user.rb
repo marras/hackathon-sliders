@@ -34,11 +34,7 @@ class User
   # field :unlock_token,    type: String # Only if unlock strategy is :email or :both
   # field :locked_at,       type: Time
 
-  has_many :user_projects
-
   field :admin, type: Boolean, default: false
 
-  def projects
-    user_projects.map &:project
-  end
+  has_and_belongs_to_many :projects
 end

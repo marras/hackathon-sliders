@@ -7,6 +7,7 @@ Sliders::Application.routes.draw do
   resources :priorities
 
   namespace :admin do
-    resource :settings
+    resources :users, only: [:index, :create, :update, :destroy]
+    resources :projects, only: [:index]
   end
 end
