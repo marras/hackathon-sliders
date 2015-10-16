@@ -2,6 +2,8 @@
   .container-fluid
     %ul.nav.navbar-nav
       %li= link_to 'Kickoff', '#', class: 'navbar-brand'
-      %li= link_to 'My Projects', projects_path
-      %li= link_to "Hello, #{current_user.email}", edit_user_registration_path
-      %li= link_to 'Sign out', destroy_user_session_path, method: :delete
+      - if admin?
+        %li.navbar-right= link_to 'Admin', admin_settings_path
+      %li.navbar-right= link_to 'My Projects', projects_path
+      %li.navbar-right= link_to "Hello, #{current_user.email}", edit_user_registration_path
+      %li.navbar-right= link_to 'Sign out', destroy_user_session_path, method: :delete

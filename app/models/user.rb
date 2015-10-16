@@ -35,4 +35,6 @@ class User
   # field :locked_at,       type: Time
 
   has_many :projects
+
+  field :admin, type: Boolean, default: false
 end

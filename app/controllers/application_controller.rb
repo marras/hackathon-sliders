@@ -7,6 +7,10 @@ class ApplicationController < ActionController::Base
     Project.find(session[:project_id])
   end
 
+  def admin?
+    current_user.try(:admin)
+  end
+
   def after_sign_in_path_for(resource)
     projects_path
   end
