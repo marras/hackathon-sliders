@@ -1,0 +1,29 @@
+!!!HTML
+%html
+  %head
+    %title Kickoff Sliders
+    = stylesheet_link_tag    "application", media: "all"
+    = javascript_include_tag "application"
+    = javascript_include_tag "kinetic-v5.1.0.min.js"
+    = csrf_meta_tags
+    = yield :head
+    = controller_js_include_tag
+    = action_js_include_tag
+    = controller_css_include_tag
+    = action_css_include_tag
+
+  %body{ data: { view: { controller: controller_name.classify, action: action_name.classify }, class: controller_name } }
+    - if notice
+      %p.alert.alert-success.alert-dismissible.fade.in
+        %span= notice
+        = render 'shared/close_button'
+    - if alert
+      %p.alert.alert-danger.alert-dismissible.fade.in
+        %span= alert
+        = render 'shared/close_button'
+
+    - if current_user
+      = render 'shared/navbar'
+
+    .container
+      = yield
