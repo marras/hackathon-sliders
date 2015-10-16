@@ -1,8 +1,7 @@
 class Sliders.Views.ColoredSlider extends Sliders.Views.BaseView
 
-  el: '.coloredSlider'
-
-  initialize: ->
+  initialize: (options) ->
+    @priority = options.priority
     @$slider = @$('.slider')
     @$slider.slider
       orientation: "horizontal"
@@ -16,7 +15,7 @@ class Sliders.Views.ColoredSlider extends Sliders.Views.BaseView
 
   refreshSwatch: ->
     value = @value()
-    myColor = H.colorEncoder.getTheColor(value)
+    myColor = window.colorEncoder.getTheColor(value)
     @$(".ui-slider-range").css "background-color", myColor
     @$(".ui-state-default, .ui-widget-content .ui-state-default").css "background-color", myColor
     @$(".friendship-quality").html(value)

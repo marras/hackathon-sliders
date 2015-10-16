@@ -1,0 +1,4 @@
+.coloredSlider
+  .slider
+  = @priority.get('name')
+  = @priority.get('value')
