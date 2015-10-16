@@ -1,9 +1,14 @@
-%h1 SlideIt!
+.col-md-2
+  %p.up-margin= link_to 'Log in!', new_user_session_path, class: 'btn btn-primary btn-large'
 
-%h2 Tell me, what's important for you?
+.col-md-8
+  %h1.text-center SlideIt!
 
-= link_to 'Log in!', new_user_session_path, class: 'btn btn-primary btn-large'
-= link_to "Sign up", new_user_registration_path, class: 'btn btn-large'
+  %h2.text-center
+    %em Tell me, what's important for you?
+
+.col-md-2
+  %p.up-margin= link_to "Sign up", new_user_registration_path, class: 'btn btn-large btn-primary'
 
 #container
   -# tu jebnąć demo :D
