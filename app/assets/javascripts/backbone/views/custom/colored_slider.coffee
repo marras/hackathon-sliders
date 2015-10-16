@@ -23,7 +23,6 @@ class Sliders.Views.ColoredSlider extends Sliders.Views.BaseView
     val = ui.value
     @$(".value").html(val)
     @priority.setValue(ui.value) if ev.originalEvent
-    #@refreshSwatch(val)
 
   refreshSwatch: (value) ->
     myColor = window.colorEncoder.getTheColor(value)
