@@ -6,9 +6,9 @@ class Sliders.Views.ColoredSlider extends Sliders.Views.BaseView
     @$slider.slider
       orientation: "horizontal"
       range: 'min'
-      max: @range
-      min: -@range
-      value: 0
+      max: 10
+      min: 0
+      value: @priority.value()
       slide: @refreshSwatch.context(@)
       change: @refreshSwatch.context(@)
     @refreshSwatch()
