@@ -6,7 +6,6 @@
 
 # Ignore bundler config.
 /.bundle
-/config/mongoid.yml
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
