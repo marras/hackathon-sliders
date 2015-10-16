@@ -1,4 +1,10 @@
 class Sliders.Models.Priority extends Backbone.Model
+  url: ->
+    if @isNew()
+      Routes.priorities_path()
+    else
+      Routes.priority_path(@id)
+
   value: ->
     @get('value')
 
