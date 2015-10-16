@@ -3,7 +3,7 @@ Sliders::Application.routes.draw do
   devise_for :users
 
   root 'home#index'
-  resources :projects, only: [:index, :create, :update, :show]
+  resources :projects, only: [:index, :create, :update, :show, :destroy]
   resources :priorities
 
   namespace :admin do

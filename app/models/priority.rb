@@ -2,6 +2,8 @@ class Priority
   include Mongoid::Document
   field :name, type: String
   field :value, type: Float, default: 5
+  field :description, type: String
+  field :obligatory, type: Boolean, default: false
 
   belongs_to :project
 

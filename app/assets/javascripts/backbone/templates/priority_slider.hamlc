@@ -1,4 +1,7 @@
 .coloredSlider
+  %span.name
+    = @priority.name()
+    :
+  %span.value= @priority.value()
+  %span.description= @priority.description()
   .slider
-  = @priority.name()
-  = @priority.value()
