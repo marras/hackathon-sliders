@@ -35,10 +35,19 @@ class Sliders.Collections.Priorities extends Backbone.Collection
       memo + p.get('value')
     , 0
 
-    factor = total / sumOfOthers
+    remaining = @length - 1
 
     _.each otherPriorities, (p) ->
-      p.set(value: p.get('value') * factor)
+      diff = (total - sumOfOthers) / remaining
+
+      value = p.get('value') + diff
+
+      # limit (0..10)
+      value = Math.max(0, Math.min(10, value))
+
+      p.set(value: value)
+      total = total - diff
+      remaining = remaining - 1
 
     @saveAll()
 
