@@ -1,0 +1,16 @@
+%h1 My Projects
+.row.existing-projects
+  .col-md-12
+    - @projects.each do |project|
+      .btn-group
+        = link_to project.title, project_path(project), class: 'btn btn-lg btn-success'
+        = link_to "X", project_path(project), class: 'btn btn-lg btn-danger', method: :delete, data: { confirm: "Are you sure to delete project '#{project.title}'?" }
+
+%br
+.row.new-project
+  .col-md-4
+    = form_for(Project.new) do |f|
+      .input-group
+        = f.text_field :title, class: 'form-control'
+        .input-group-btn
+          = f.submit "Add new project", class: 'btn btn-primary'
