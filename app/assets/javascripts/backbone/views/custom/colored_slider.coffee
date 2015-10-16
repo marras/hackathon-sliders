@@ -12,6 +12,7 @@ class Sliders.Views.ColoredSlider extends Sliders.Views.BaseView
       slide: @onSlide.context(@)
       change: @onChange.context(@)
     @refreshSwatch(@priority.value())
+    @priority.on 'sync', @onRecalc, @
 
   onSlide: (ev, ui) ->
     val = ui.value
@@ -24,4 +25,10 @@ class Sliders.Views.ColoredSlider extends Sliders.Views.BaseView
     @$(".ui-state-default, .ui-widget-content .ui-state-default").css "background-color", myColor
 
   onChange: (ev, ui) ->
-    @priority.save(value: ui.value)
+    @priority.setValue(ui.value) if ev.originalEvent
+
+  onRecalc: ->
+    val = @priority.value()
+    @$(".value").html(val)
+    @$slider.slider('value', val)
+    @refreshSwatch(val)

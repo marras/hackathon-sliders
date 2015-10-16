@@ -1,6 +1,6 @@
 .coloredSlider
   %span.name
     #{@priority.name()}:
-  %span.value= Math.round(@priority.value())
+  %span.value= @priority.value()
   %span.description.pull-right= @priority.description()
   .slider
