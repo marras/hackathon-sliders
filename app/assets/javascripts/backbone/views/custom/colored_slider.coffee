@@ -1,5 +1,8 @@
 class Sliders.Views.ColoredSlider extends Sliders.Views.BaseView
 
+  events:
+    'click .remove' : 'removePriority'
+
   initialize: (options) ->
     @priority = options.priority
     @$slider = @$('.slider')
@@ -13,6 +16,7 @@ class Sliders.Views.ColoredSlider extends Sliders.Views.BaseView
       change: @onChange.context(@)
     @refreshSwatch(@priority.value())
     @priority.on 'sync', @onRecalc, @
+    @priority.on 'destroy', @destroyView, @
 
   onSlide: (ev, ui) ->
     val = ui.value
@@ -32,3 +36,6 @@ class Sliders.Views.ColoredSlider extends Sliders.Views.BaseView
     @$(".value").html(val)
     @$slider.slider('value', val)
     @refreshSwatch(val)
+
+  removePriority: ->
+    @priority.destroy()

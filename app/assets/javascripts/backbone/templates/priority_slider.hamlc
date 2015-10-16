@@ -2,5 +2,9 @@
   %span.name
     #{@priority.name()}:
   %span.value= @priority.value()
-  %span.description.pull-right= @priority.description()
+  - if @priority.removable()
+    %a.remove.pull-right{href: '#'}
+      %i.glyphicon.glyphicon-remove
+  - else
+    %span.description.pull-right= @priority.description()
   .slider

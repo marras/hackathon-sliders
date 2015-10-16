@@ -18,7 +18,7 @@ class Sliders.Models.Priority extends Backbone.Model
   description: ->
     @get('description')
 
-  changeable: ->
+  removable: ->
     !@get('obligatory')
 
 class Sliders.Collections.Priorities extends Backbone.Collection
