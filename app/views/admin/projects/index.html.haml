@@ -1,0 +1,9 @@
+%h2 Project
+
+%table.table.table-striped
+  %thead
+    %th Name
+    %th #Users
+  %tbody
+    - @projects.each do |project|
+      = render 'admin/projects/project', project: project

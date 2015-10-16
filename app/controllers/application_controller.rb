@@ -3,10 +3,12 @@ class ApplicationController < ActionController::Base
 
   before_action :authenticate_user!
 
+  helper_method :current_project
   def current_project
     Project.find(session[:project_id])
   end
 
+  helper_method :admin?
   def admin?
     current_user.try(:admin)
   end

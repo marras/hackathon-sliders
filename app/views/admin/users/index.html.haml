@@ -1,0 +1,15 @@
+%h1 Project settings
+
+%h2 Users
+
+%table.table.table-striped
+  %thead
+    %th Email
+    %th Admin?
+  %tbody
+    - @users.each do |user|
+      = render 'admin/users/user', user: user
+
+= form_for [:admin, @user] do |f|
+  = f.text_field :email
+  = f.submit "Add client to project"
