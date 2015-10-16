@@ -49,7 +49,7 @@ class Sliders.Collections.Priorities extends Backbone.Collection
       total = total - diff
       remaining = remaining - 1
 
-    @saveAll()
+    @trigger('recalculated')
 
   saveAll: ->
     _.each @models, (p) ->
