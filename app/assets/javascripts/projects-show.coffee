@@ -3,4 +3,4 @@
 
 $ ->
   window.router = new Sliders.Routers.Project()
-  window.colorEncoder = new Sliders.ColorEncoder(10)
+  window.colorEncoder = new Sliders.ColorEncoder(5, 5)
